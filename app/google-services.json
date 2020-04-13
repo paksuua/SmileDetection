@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "403596756908",
+    "firebase_url": "https://facedetection-13291.firebaseio.com",
+    "project_id": "facedetection-13291",
+    "storage_bucket": "facedetection-13291.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:403596756908:android:fe3084a0af31efba389c09",
+        "android_client_info": {
+          "package_name": "kayvankaseb.android.MLkit.facedetection"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "403596756908-aakjue37gcdhmuu6fasb0jstdqskjbi2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7i414Iio745ku28e4-C6nqgvAyiekoyg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "403596756908-aakjue37gcdhmuu6fasb0jstdqskjbi2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
