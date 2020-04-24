@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initUI() {
-        val textViewMood = findViewById<TextView>(R.id.textViewMood)
+        findViewById<TextView>(R.id.textViewMood)
     }
 
     private fun detect(frame: Frame) {
