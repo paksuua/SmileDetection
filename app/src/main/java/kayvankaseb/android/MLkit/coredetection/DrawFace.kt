@@ -30,7 +30,9 @@ internal class DrawFace(private val cameraWidth: Int, private val cameraHeight: 
                     leftEyeBrowTopContour = it.getContour(FirebaseVisionFaceContour.LEFT_EYEBROW_TOP),
                     leftEyeBrowBottomContour = it.getContour(FirebaseVisionFaceContour.LEFT_EYEBROW_BOTTOM),
                     rightEyeBrowTopContour = it.getContour(FirebaseVisionFaceContour.RIGHT_EYEBROW_TOP),
-                    rightEyeBrowBottomContour = it.getContour(FirebaseVisionFaceContour.RIGHT_EYEBROW_BOTTOM))
+                    rightEyeBrowBottomContour = it.getContour(FirebaseVisionFaceContour.RIGHT_EYEBROW_BOTTOM),
+                    smileProbability = it.smilingProbability
+                    )
                 contourFaces.add(contourFace)
             } else {
                 val landmarkFace = LandmarkFace(
@@ -44,7 +46,9 @@ internal class DrawFace(private val cameraWidth: Int, private val cameraHeight: 
                     bottomMouth = it.getLandmark(FirebaseVisionFaceLandmark.MOUTH_BOTTOM),
                     leftCheek = it.getLandmark(FirebaseVisionFaceLandmark.LEFT_CHEEK),
                     rightCheek = it.getLandmark(FirebaseVisionFaceLandmark.RIGHT_CHEEK),
-                    noseBase = it.getLandmark(FirebaseVisionFaceLandmark.NOSE_BASE))
+                    noseBase = it.getLandmark(FirebaseVisionFaceLandmark.NOSE_BASE),
+                    smileProbability = it.smilingProbability
+                    )
                 landmarkFaces.add(landmarkFace)
             }
         }
@@ -61,15 +65,18 @@ internal class DrawFace(private val cameraWidth: Int, private val cameraHeight: 
 
         contourFaces.forEach {
             with(canvas) {
-                paint.color = Color.argb(180, 0, 0, 0)
-                paint.style = Paint.Style.FILL
-                drawRect(it.boundingBox, paint)
+                //paint.color = Color.argb(180, 0, 0, 0)
+                //paint.style = Paint.Style.FILL
+                //drawRect(it.boundingBox, paint)
 
-                paint.color = Color.WHITE
+
+                paint.color = Color.RED
                 paint.style = Paint.Style.STROKE
                 drawRect(it.boundingBox, paint)
+                //drawText(it.smileProbability().toString(), 300.0F,300.0F,paint)
+                //drawText(it.smileProbability().toString(),it.boundingBox.left.toFloat(), it.boundingBox.top.toFloat(),paint)
 
-                paint.style = Paint.Style.STROKE
+                /*paint.style = Paint.Style.STROKE
                 paint.color = Color.WHITE
                 it.faceContourPoints().forEach { pts -> drawLines(pts, paint) }
 
@@ -84,11 +91,11 @@ internal class DrawFace(private val cameraWidth: Int, private val cameraHeight: 
 
                 paint.color = Color.WHITE
                 it.eyeBrowContourPoints().forEach { pts -> drawLines(pts, paint) }
-
+*/
             }
         }
 
-        paint.style = Paint.Style.STROKE
+        /*paint.style = Paint.Style.STROKE
         landmarkFaces.forEach {
             with(canvas) {
                 paint.color = Color.WHITE
@@ -99,7 +106,7 @@ internal class DrawFace(private val cameraWidth: Int, private val cameraHeight: 
                 drawPoints(it.mouthPoints(), paint)
                 drawPoints(it.nosePoints(), paint)
             }
-        }
+        }*/
         return bmp
     }
 }

@@ -36,13 +36,12 @@ class MainActivity : AppCompatActivity() {
 
         with(cameraPreview) {
             facing = Facing.FRONT
-            scaleX = -1f
             addFrameProcessor { if (!isLoadingDetection) detect(it) }
         }
     }
 
     private fun initUI() {
-        findViewById<TextView>(R.id.textViewMood)
+        //findViewById<TextView>(R.id.textViewMood)
     }
 
     private fun detect(frame: Frame) {
@@ -118,19 +117,19 @@ class MainActivity : AppCompatActivity() {
 
         for (face in faces) {
 
-            textViewMood.text = getEmojiUnicode(0x1F60A) + getEmojiUnicode(0x1F60A) + getEmojiUnicode(0x1F60A)
+            //textViewMood.text = getEmojiUnicode(0x1F60A) + getEmojiUnicode(0x1F60A) + getEmojiUnicode(0x1F60A)
 
             if (face.leftEyeOpenProbability != FirebaseVisionFace.UNCOMPUTED_PROBABILITY) {
                 val leftEyeOpenProb = face.leftEyeOpenProbability
                 val rightEyeOpenProb = face.rightEyeOpenProbability
                 if (leftEyeOpenProb < 0.2 || rightEyeOpenProb < 0.2) {
-                    textViewMood.text = getEmojiUnicode(0X1F609) + getEmojiUnicode(0X1F609) + getEmojiUnicode(0X1F609)
+                    //textViewMood.text = getEmojiUnicode(0X1F609) + getEmojiUnicode(0X1F609) + getEmojiUnicode(0X1F609)
                 }
             }
                 if (face.smilingProbability != FirebaseVisionFace.UNCOMPUTED_PROBABILITY) {
                     val smileProb = face.smilingProbability
                     if (smileProb > 0.4) {
-                        textViewMood.text = getEmojiUnicode(0x1F601) + getEmojiUnicode(0x1F601) + getEmojiUnicode(0x1F601)
+                        //textViewMood.text = getEmojiUnicode(0x1F601) + getEmojiUnicode(0x1F601) + getEmojiUnicode(0x1F601)
                 }
             }
         }

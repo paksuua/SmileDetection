@@ -18,7 +18,8 @@ internal class ContourFace(
     private val leftEyeBrowTopContour: FirebaseVisionFaceContour?,
     private val leftEyeBrowBottomContour: FirebaseVisionFaceContour?,
     private val rightEyeBrowTopContour: FirebaseVisionFaceContour?,
-    private val rightEyeBrowBottomContour: FirebaseVisionFaceContour?
+    private val rightEyeBrowBottomContour: FirebaseVisionFaceContour?,
+    private val smileProbability: Float
 
 ): DetectedFace(boundingBox) {
 
@@ -27,6 +28,7 @@ internal class ContourFace(
     fun eyeContourPoints() = makeContourPoints(leftEyeContour, rightEyeContour)
     fun lipContourPoints() = makeContourPoints(upperLipTopContour, upperLipBottomContour, lowerLipTopContour, lowerLipBottomContour)
     fun eyeBrowContourPoints() = makeContourPoints(leftEyeBrowTopContour, leftEyeBrowBottomContour, rightEyeBrowTopContour, rightEyeBrowBottomContour)
+    fun smileProbability() = smileProbability
 
     private fun makeContourPoints(vararg contours: FirebaseVisionFaceContour?): List<FloatArray> {
         val contourPoints = ArrayList<FloatArray>()

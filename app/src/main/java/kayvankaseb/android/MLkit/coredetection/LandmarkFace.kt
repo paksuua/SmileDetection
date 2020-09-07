@@ -15,7 +15,8 @@ internal class LandmarkFace(
     private val bottomMouth: FirebaseVisionFaceLandmark?,
     private val leftCheek: FirebaseVisionFaceLandmark?,
     private val rightCheek: FirebaseVisionFaceLandmark?,
-    private val noseBase: FirebaseVisionFaceLandmark?
+    private val noseBase: FirebaseVisionFaceLandmark?,
+    private val smileProbability: Float
 ): DetectedFace(boundingBox) {
 
     fun earsPoints() =  makeLandmarkPoints(leftEar, rightEar)
