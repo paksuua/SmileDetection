@@ -17,6 +17,8 @@
         <meta-data
             android:name="com.google.firebase.ml.vision.DEPENDENCIES"
             android:value="face" />
+        <activity android:name=".FirstActivity"/>
+        <activity android:name=".SecondActivity"/>
 
         <activity android:name=".MainActivity">
             <intent-filter>

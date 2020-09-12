@@ -106,7 +106,7 @@ class MainActivity : AppCompatActivity() {
             if (face.smilingProbability != FirebaseVisionFace.UNCOMPUTED_PROBABILITY) {
                 val smileProb = face.smilingProbability
                 if (smileProb > 0) {
-                    Toast.makeText(this, "The degree of your happiness is:$smileProb", Toast.LENGTH_SHORT).show()
+                    //Toast.makeText(this, "The degree of your happiness is:$smileProb", Toast.LENGTH_SHORT).show()
                 }
             }
         }
